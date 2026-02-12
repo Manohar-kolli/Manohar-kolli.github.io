@@ -6,21 +6,52 @@
 }
 
 body {
-    background: #f5f7fa;
+    background: #3967b1;
     color: #333;
     line-height: 1.6;
 }
-
-/* Header */
-.header {
-    background: #1f2933;
-    color: #fff;
+h1,h4,h4{
     text-align: center;
-    padding: 30px 20px;
+    align-items: center;
+}
+.bg{
+    background-image: url(1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 350px;
+
+    display: flex;              /* important */
+    flex-direction: column;     /* h4,h1,h4 vertical */
+    justify-content: center;    /* vertical center */
+    align-items: center;        /* horizontal center */
+    text-align: center;
+    color: white;
+}
+.home{
+  display:flex;          /* MAIN MAGIC */
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  padding:40px;
 }
 
+.text{
+  flex:1;
+}
+
+.img img{
+  width:550px;
+  border-radius:10px;
+  background-size: cover;
+}
+
+
 .nav {
-    margin-top: 15px;
+    margin-top: 30px;
+    text-align: right;
+    margin-right: 50px;
+    margin-bottom: 20px;
 }
 
 .nav a {
@@ -34,31 +65,66 @@ body {
     color: #38bdf8;
 }
 
-/* Profile */
-.profile {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 30px;
-    flex-wrap: wrap;
+.projects.h2{
+    text-align:center;
+    margin-top: 10px;
 }
 
-.profile img {
-    width: 250px;
-    border-radius: 10px;
+.projects{
+    text-align:center;
+    padding:20px;
 }
 
-.profile iframe {
-    width: 350px;
-    height: 200px;
-    border-radius: 10px;
+.project-container{
+    display:flex;              /* 3 images pakkana ravadaniki */
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.project-card{
+    width:30%;
+}
+
+.img-box{
+    position:relative;
+    overflow:hidden;
+    height: 400px;
+}
+
+.img-box img{
+    width:100%;
+    border-radius:10px;
+    display:block;
+}
+
+/* Hover window */
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:0.4s;
+    border-radius:10px;
+}
+
+.img-box:hover .overlay{
+    opacity:1;        /* cursor velte content kanipistundi */
 }
 
 /* Sections */
 .section {
+    text-align: left;
     padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .section h2 {
@@ -92,11 +158,6 @@ body {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.radio-group {
-    display: flex;
-    gap: 10px;
 }
 
 .contact-form button {
